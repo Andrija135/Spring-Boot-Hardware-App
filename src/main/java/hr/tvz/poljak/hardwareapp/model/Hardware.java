@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Hardware {
 
     private String name;

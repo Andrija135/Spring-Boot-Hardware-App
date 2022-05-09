@@ -33,6 +33,28 @@ public class MockHardwareRepository implements HardwareRepository {
                 .findAny();
     }
 
+    @Override
+    public Optional<Hardware> save(Hardware newHardware) {
+        if (!MOCK_HARDWARE.contains(newHardware)) {
+            MOCK_HARDWARE.add(newHardware);
+            return Optional.of(newHardware);
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Hardware> update(final String code, Hardware updatedHardware) {
+
+        boolean itemExisted = MOCK_HARDWARE
+                .removeIf(hardware -> hardware.getCode().equals(code) && code.equals(updatedHardware.getCode()));
+
+        if (itemExisted) {
+            MOCK_HARDWARE.add(updatedHardware);
+            return Optional.of(updatedHardware);
+        } else {
+            return Optional.empty();
+        }
+    }
 
     @Override
     public void deleteByCode(String code) {

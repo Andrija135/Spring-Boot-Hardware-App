@@ -11,5 +11,9 @@ public interface HardwareRepository {
 
     Optional<Hardware> findByCode(String code);
 
+    Optional<Hardware> save(Hardware newHardware);
+
+    Optional<Hardware> update(String code, Hardware updatedHardware);
+
     void deleteByCode(String code);
 }
