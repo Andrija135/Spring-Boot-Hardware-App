@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("hardware")
+@CrossOrigin(origins = "http://localhost:4200")
 public class HardwareController {
 
     private final HardwareService hardwareService;

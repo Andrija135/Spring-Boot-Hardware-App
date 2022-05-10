@@ -11,5 +11,7 @@ public class HardwareDTO {
 
     private String name;
 
+    private String code;
+
     private BigDecimal price;
 }
