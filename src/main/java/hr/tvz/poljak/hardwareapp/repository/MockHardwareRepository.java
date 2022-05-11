@@ -15,8 +15,9 @@ public class MockHardwareRepository implements HardwareRepository {
 
     private final List<Hardware> MOCK_HARDWARE = new ArrayList<>(
             Arrays.asList(
-                    new Hardware("Intel Pentium", "jhbJHG", BigDecimal.valueOf(100.00), HardwareType.CPU, 5),
-                    new Hardware("RTX", "SDFLN", BigDecimal.valueOf(2100.00), HardwareType.GPU, 5)
+                    new Hardware(1L, "Intel Pentium", "jhbJHG", BigDecimal.valueOf(100.00), HardwareType.CPU, 5),
+                    new Hardware(2L, "RTX", "SDFLN", BigDecimal.valueOf(2100.00), HardwareType.GPU, 2),
+                    new Hardware(3L, "ASUS ZEPHYRUS", "DFGFG", BigDecimal.valueOf(15000.00), HardwareType.OTHER, 10)
             )
     );
 

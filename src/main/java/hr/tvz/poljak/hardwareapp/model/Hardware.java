@@ -1,15 +1,16 @@
 package hr.tvz.poljak.hardwareapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Hardware {
+
+    private Long id;
 
     private String name;
 

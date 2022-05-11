@@ -62,12 +62,12 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     public Hardware mapCommandToHardware(final HardwareCommand command) {
-        return new Hardware(
-                command.getName(),
-                command.getCode(),
-                command.getPrice(),
-                command.getType(),
-                command.getNrAvailable()
-        );
+        return Hardware.builder()
+                .name(command.getName())
+                .code(command.getCode())
+                .price(command.getPrice())
+                .type(command.getType())
+                .nrAvailable(command.getNrAvailable())
+                .build();
     }
 }
