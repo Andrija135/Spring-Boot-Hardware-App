@@ -1,4 +1,4 @@
-package hr.tvz.poljak.hardwareapp.model;
+package hr.tvz.poljak.hardwareapp.hardware.model;
 
 public enum HardwareType {
     CPU,

@@ -1,9 +1,9 @@
-package hr.tvz.poljak.hardwareapp.service;
+package hr.tvz.poljak.hardwareapp.hardware.service;
 
-import hr.tvz.poljak.hardwareapp.dto.HardwareDTO;
-import hr.tvz.poljak.hardwareapp.model.Hardware;
-import hr.tvz.poljak.hardwareapp.model.HardwareCommand;
-import hr.tvz.poljak.hardwareapp.repository.HardwareRepository;
+import hr.tvz.poljak.hardwareapp.hardware.model.Hardware;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareCommand;
+import hr.tvz.poljak.hardwareapp.hardware.repository.HardwareRepository;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,12 +62,12 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     public Hardware mapCommandToHardware(final HardwareCommand command) {
-        return Hardware.builder()
-                .name(command.getName())
-                .code(command.getCode())
-                .price(command.getPrice())
-                .type(command.getType())
-                .nrAvailable(command.getNrAvailable())
-                .build();
+        return new Hardware(
+                command.getName(),
+                command.getCode(),
+                command.getPrice(),
+                command.getType(),
+                command.getStock()
+        );
     }
 }

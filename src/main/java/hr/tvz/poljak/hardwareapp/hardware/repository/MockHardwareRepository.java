@@ -1,7 +1,7 @@
-package hr.tvz.poljak.hardwareapp.repository;
+package hr.tvz.poljak.hardwareapp.hardware.repository;
 
-import hr.tvz.poljak.hardwareapp.model.Hardware;
-import hr.tvz.poljak.hardwareapp.model.HardwareType;
+import hr.tvz.poljak.hardwareapp.hardware.model.Hardware;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareType;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;

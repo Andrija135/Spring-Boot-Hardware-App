@@ -1,8 +1,7 @@
-package hr.tvz.poljak.hardwareapp.service;
+package hr.tvz.poljak.hardwareapp.hardware.service;
 
-import hr.tvz.poljak.hardwareapp.dto.HardwareDTO;
-import hr.tvz.poljak.hardwareapp.model.Hardware;
-import hr.tvz.poljak.hardwareapp.model.HardwareCommand;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareCommand;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareDTO;
 
 import java.util.List;
 import java.util.Optional;

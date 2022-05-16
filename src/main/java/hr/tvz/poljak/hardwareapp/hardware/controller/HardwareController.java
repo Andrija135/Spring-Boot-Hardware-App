@@ -1,9 +1,9 @@
-package hr.tvz.poljak.hardwareapp.controller;
+package hr.tvz.poljak.hardwareapp.hardware.controller;
 
 
-import hr.tvz.poljak.hardwareapp.dto.HardwareDTO;
-import hr.tvz.poljak.hardwareapp.model.HardwareCommand;
-import hr.tvz.poljak.hardwareapp.service.HardwareService;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareCommand;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareDTO;
+import hr.tvz.poljak.hardwareapp.hardware.service.HardwareService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +27,7 @@ public class HardwareController {
         return hardwareService.findAll();
     }
 
-    @GetMapping(("/{code}"))
+    @GetMapping("/{code}")
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code) {
         return hardwareService
                 .findByCode(code)

@@ -1,4 +1,4 @@
-package hr.tvz.poljak.hardwareapp.model;
+package hr.tvz.poljak.hardwareapp.hardware.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -27,6 +27,6 @@ public class HardwareCommand {
 
     @NotNull(message = "Number of available items must be entered")
     @PositiveOrZero(message = "Number of available items must be entered as a positive integer")
-    private Integer nrAvailable;
+    private Integer stock;
 
 }

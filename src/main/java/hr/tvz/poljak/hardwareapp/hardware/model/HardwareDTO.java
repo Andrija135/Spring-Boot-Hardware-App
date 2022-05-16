@@ -1,4 +1,4 @@
-package hr.tvz.poljak.hardwareapp.dto;
+package hr.tvz.poljak.hardwareapp.hardware.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

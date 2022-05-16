@@ -1,7 +1,7 @@
-package hr.tvz.poljak.hardwareapp.repository;
+package hr.tvz.poljak.hardwareapp.hardware.repository;
 
-import hr.tvz.poljak.hardwareapp.model.Hardware;
-import hr.tvz.poljak.hardwareapp.model.HardwareType;
+import hr.tvz.poljak.hardwareapp.hardware.model.Hardware;
+import hr.tvz.poljak.hardwareapp.hardware.model.HardwareType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,14 +15,14 @@ import java.util.*;
 
 @Primary
 @Repository
-public class JdbcHardwareRepository implements HardwareRepository {
+public class HardwareRepositoryImpl implements HardwareRepository {
 
-    private static final String SELECT_ALL = "SELECT id, name, code, price, type, nrAvailable FROM hardware ";
+    private static final String SELECT_ALL = "SELECT id, name, code, price, type, stock FROM hardware ";
 
     private final JdbcTemplate jdbc;
     private final SimpleJdbcInsert inserter;
 
-    public JdbcHardwareRepository(JdbcTemplate jdbc) {
+    public HardwareRepositoryImpl(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
         this.inserter = new SimpleJdbcInsert(jdbc)
                 .withTableName("hardware")
@@ -69,7 +69,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
                 "code = ?, " +
                 "price = ?, " +
                 "type = ?, " +
-                "nrAvailable = ? " +
+                "stock = ? " +
                 "WHERE code = ?";
 
         int executed = jdbc.update(sql,
@@ -77,7 +77,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
                 updatedHardware.getCode(),
                 updatedHardware.getPrice(),
                 updatedHardware.getType().toString(),
-                updatedHardware.getNrAvailable(),
+                updatedHardware.getStock(),
                 code
         );
 
@@ -100,8 +100,8 @@ public class JdbcHardwareRepository implements HardwareRepository {
         values.put("name", hardware.getName());
         values.put("code", hardware.getCode());
         values.put("price", hardware.getPrice());
-        values.put("type", hardware.getType());
-        values.put("nrAvailable", hardware.getNrAvailable());
+        values.put("type", hardware.getType().toString());
+        values.put("stock", hardware.getStock());
 
         return inserter.executeAndReturnKey(values).longValue();
     }
@@ -113,7 +113,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
                 rs.getString("code"),
                 rs.getBigDecimal("price"),
                 HardwareType.valueOf(rs.getString("type")),
-                rs.getInt("nrAvailable")
+                rs.getInt("stock")
         );
     }
 }
