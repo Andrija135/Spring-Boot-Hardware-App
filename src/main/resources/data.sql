@@ -11,8 +11,8 @@ VALUES ('KG23JH4G23K4', 'Intel Pentium', 100.00, 'CPU', 10),
 
 INSERT INTO review (title, text, rating, hardware_id)
 VALUES ('Slow', 'Slowest thing ever', 1, 1),
-       ('No.', 'Old and not reliable', 2, 1),
-       ('Very Good', 'Good GPU',4, 2),
-       ('Strong', 'Everything is great',4, 2),
-       ('Best Laptop', 'Best laptop I ever had',5, 3),
+       ('Just no. Avoid at all cost.', 'Old and not reliable', 2, 1),
+       ('Very Good GPU', 'Good GPU',4, 2),
+       ('Runs very smooth. I like it.', 'Everything is great',4, 2),
+       ('Best Laptop I Ever had', 'Best laptop I ever had',5, 3),
        ('Best of', 'Top of the top',5, 3);
