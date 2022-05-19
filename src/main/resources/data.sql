@@ -17,3 +17,16 @@ VALUES ('Slow', 'Slowest thing ever', 1, 1),
        ('Runs very smooth. I like it.', 'Everything is great',4, 2),
        ('Best Laptop I Ever had', 'Best laptop I ever had',5, 3),
        ('Best of', 'Top of the top',5, 3);
+
+
+INSERT INTO user(id, username, password)
+VALUES (1, 'user', '$2a$10$XPxWobjZUXcN.39pnS2XL.LUoTrkhpcxvxJOrA8zQai0wlb.GzKgS'),  ----> password = lozinkaUser
+       (2, 'admin', '$2a$10$9Qnu74rUoVqxLNTuBNViAuy/4XX.G.2Hv1Rnm1rYEQD4SOc6/17su'); ----> password = lozinkaAdmin
+
+INSERT INTO authority (id, authority_name)
+VALUES (1, 'ROLE_ADMIN'),
+       (2, 'ROLE_USER');
+
+INSERT INTO user_authority (user_id, authority_id)
+VALUES (1, 2),
+       (2, 1);
