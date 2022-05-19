@@ -6,6 +6,7 @@ import hr.tvz.poljak.hardwareapp.hardware.model.HardwareDTO;
 import hr.tvz.poljak.hardwareapp.hardware.service.HardwareService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,11 +24,13 @@ public class HardwareController {
     }
 
     @GetMapping
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public List<HardwareDTO> getAllHardwares() {
         return hardwareService.findAll();
     }
 
     @GetMapping("/{code}")
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code) {
         return hardwareService
                 .findByCode(code)
@@ -36,6 +39,7 @@ public class HardwareController {
     }
 
     @PostMapping
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<HardwareDTO> save(@Valid @RequestBody final HardwareCommand command) {
         return hardwareService
                 .save(command)
@@ -44,6 +48,7 @@ public class HardwareController {
     }
 
     @PutMapping("/{code}")
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<HardwareDTO> update(@PathVariable String code, @Valid @RequestBody final HardwareCommand updatedHardwareCommand) {
         return hardwareService
                 .update(code, updatedHardwareCommand)
@@ -53,6 +58,7 @@ public class HardwareController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{code}")
+    @Secured({"ROLE_ADMIN"})
     public void delete(@PathVariable String code) {
         hardwareService.deleteByCode(code);
     }
