@@ -27,7 +27,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDTO> findByHardwareByCode(String code) {
+    public List<ReviewDTO> findByHardwareCode(String code) {
         return reviewRepository
                 .findAllByHardwareCode(code)
                 .stream()

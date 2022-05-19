@@ -27,7 +27,7 @@ public class ReviewController {
 
     @GetMapping("{code}")
     public List<ReviewDTO> getReviewsForHardware(@PathVariable String code) {
-        return reviewService.findByHardwareByCode(code);
+        return reviewService.findByHardwareCode(code);
     }
 
 }

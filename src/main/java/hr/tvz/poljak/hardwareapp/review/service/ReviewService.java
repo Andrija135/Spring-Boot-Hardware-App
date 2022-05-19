@@ -8,5 +8,5 @@ public interface ReviewService {
 
     List<ReviewDTO> findAll();
 
-    List<ReviewDTO> findByHardwareByCode(String code);
+    List<ReviewDTO> findByHardwareCode(String code);
 }
