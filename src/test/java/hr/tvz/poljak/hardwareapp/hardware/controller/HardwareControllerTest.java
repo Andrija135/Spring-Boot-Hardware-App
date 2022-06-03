@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -41,9 +42,11 @@ class HardwareControllerTest {
                         (get("/hardware")
                                 .with(csrf())
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                                .accept(MediaType.APPLICATION_JSON)
                         )
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$", hasSize(7)));
     }
 
     @Test
@@ -75,10 +78,11 @@ class HardwareControllerTest {
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(body))
-                                .accept(MediaType.APPLICATION_JSON_UTF8))
+                                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value("PachoKomadHardvera"))
+                .andExpect(jsonPath("$.code").value("pachoCode"))
                 .andExpect(jsonPath("$.price").value(937.00));
     }
 }

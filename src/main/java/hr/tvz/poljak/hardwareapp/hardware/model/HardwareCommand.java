@@ -16,7 +16,6 @@ public class HardwareCommand {
     private String name;
 
     @NotBlank(message = "Code must not be empty")
-    @Length(min = 5, max = 100, message = "Code must have between 5 and 100 characters")
     private String code;
 
     @DecimalMin(value = "0.0", inclusive = false)
