@@ -1,8 +1,9 @@
-DELETE FROM hardware;
 DELETE FROM review;
+DELETE FROM hardware;
+
+DELETE FROM user_authority;
 DELETE FROM user;
 DELETE FROM authority;
-DELETE FROM user_authority;
 
 INSERT INTO hardware (code, name, price, type, stock)
 VALUES ('KG23JH4G23K4', 'Intel Pentium', 100.00, 'CPU', 10),
@@ -24,8 +25,8 @@ VALUES ('Slow', 'Slowest thing ever', 1, 1),
 
 
 INSERT INTO user(id, username, password)
-VALUES (1, 'user', '$2a$10$XPxWobjZUXcN.39pnS2XL.LUoTrkhpcxvxJOrA8zQai0wlb.GzKgS'), ----> password = lozinkaUser
-       (2, 'admin', '$2a$10$9Qnu74rUoVqxLNTuBNViAuy/4XX.G.2Hv1Rnm1rYEQD4SOc6/17su'); ----> password = lozinkaAdmin
+VALUES (1, 'user', '$2a$10$oJAQ1KboAFYkwTapuu6oLucd6CfbagLKoOyG0EIEVPxPprEGpLxEa'), ----> password = user
+       (2, 'admin', '$2a$10$ndyiqrEM6Po.yZDrx6ff.eHelpwCXY/lqxatuw98tLPo9td2ljRcK'); ----> password = admin
 
 INSERT INTO authority (id, authority_name)
 VALUES (1, 'ROLE_ADMIN'),
