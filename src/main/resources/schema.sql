@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS review
     text        TEXT         NOT NULL,
     rating      INT          NOT NULL,
     hardware_id INT          NOT NULL,
-    FOREIGN KEY (hardware_id) REFERENCES hardware (id)
+    FOREIGN KEY (hardware_id) REFERENCES hardware (id) ON DELETE CASCADE
 );
 
 

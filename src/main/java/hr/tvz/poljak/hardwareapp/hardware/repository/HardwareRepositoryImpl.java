@@ -91,7 +91,7 @@ public class HardwareRepositoryImpl implements HardwareRepository {
     @Override
     public void deleteByCode(String code) {
         String sql = "DELETE FROM hardware WHERE code = ?";
-        jdbc.update(sql,code);
+        jdbc.update(sql, code);
     }
 
     private long saveHardwareDetails(Hardware hardware) {
