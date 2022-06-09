@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.transaction.Transactional;
@@ -25,7 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
 class HardwareControllerTest {
 
     String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NDg3NTg2OSwiaWF0IjoxNjU0MjcxMDY5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.7V7CwMnTICp9cEF46CvcHVC2VDhfR-Jy4el4kvEe2tE4Y3HbpglQRLJZwI_vnrFnY2bjfxsqfttWfR-jMtbVDw";
@@ -52,7 +50,9 @@ class HardwareControllerTest {
     @Test
     void getHardwareByCode() throws Exception {
         Hardware testHardware = new Hardware("Intel Pentium", "KG23JH4G23K4", BigDecimal.valueOf(100.00), HardwareType.CPU, 10);
-        this.mockMvc.perform(get("/hardware/KG23JH4G23K4"))
+        this.mockMvc.perform(
+                        get("/hardware/KG23JH4G23K4")
+                                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value(testHardware.getName()))

@@ -6,7 +6,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -16,7 +15,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
 class ReviewControllerTest {
 
     String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NDg3NTg2OSwiaWF0IjoxNjU0MjcxMDY5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.7V7CwMnTICp9cEF46CvcHVC2VDhfR-Jy4el4kvEe2tE4Y3HbpglQRLJZwI_vnrFnY2bjfxsqfttWfR-jMtbVDw";

@@ -58,7 +58,7 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     public HardwareDTO mapHardwareToDTO(final Hardware hardware) {
-        return new HardwareDTO(hardware.getName(), hardware.getCode(), hardware.getPrice());
+        return new HardwareDTO(hardware.getName(), hardware.getCode(), hardware.getPrice(), hardware.getStock());
     }
 
     public Hardware mapCommandToHardware(final HardwareCommand command) {
