@@ -10,4 +10,4 @@
 - Labos07 -> Spring Security
 - Labos08 -> Internationalization in the Angular application
 - Labos09 -> JUnit
-- Labos10 -> 
+- Labos10 -> Quartz Scheduler
