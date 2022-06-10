@@ -53,7 +53,7 @@ public class HardwareController {
         return hardwareService
                 .update(code, updatedHardwareCommand)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.noContent().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -25,8 +25,8 @@ VALUES ('Slow', 'Slowest thing ever', 1, 1),
 
 
 INSERT INTO user(id, username, password)
-VALUES (1, 'user', '$2a$10$oJAQ1KboAFYkwTapuu6oLucd6CfbagLKoOyG0EIEVPxPprEGpLxEa'), ----> password = user
-       (2, 'admin', '$2a$10$ndyiqrEM6Po.yZDrx6ff.eHelpwCXY/lqxatuw98tLPo9td2ljRcK'); ----> password = admin
+VALUES (1, 'user', '$2a$10$Hfyjzwb4.se.xi4ZN4LGNuDBnXUUrebC3isqULmmiM.MEDsphfqRa'), ----> password = user
+       (2, 'admin', '$2a$10$n6WS00rlkoRB/w.rBlgg5egIXp17lcb4BqvXHIy8r0HKrd9WI6FZy'); ----> password = admin
 
 INSERT INTO authority (id, authority_name)
 VALUES (1, 'ROLE_ADMIN'),
