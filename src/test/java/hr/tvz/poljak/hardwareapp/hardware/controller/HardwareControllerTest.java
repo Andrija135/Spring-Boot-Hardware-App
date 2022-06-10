@@ -18,8 +18,7 @@ import java.util.Map;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -84,5 +83,25 @@ class HardwareControllerTest {
                 .andExpect(jsonPath("$.name").value("PachoKomadHardvera"))
                 .andExpect(jsonPath("$.code").value("pachoCode"))
                 .andExpect(jsonPath("$.price").value(937.00));
+    }
+
+    @Test
+    void update() throws Exception {
+        Map<String, Object> body = new HashMap<>();
+        body.put("name", "PachoKomadHardvera");
+        body.put("code", "pachoCode");
+        body.put("price", 937.00);
+        body.put("type", "CPU");
+        body.put("stock", 45);
+
+
+        this.mockMvc.perform(
+                        put("/hardware/nonExistantCode")
+                                .with(csrf())
+                                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(body))
+                                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }
